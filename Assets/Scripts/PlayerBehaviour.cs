@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Responsible for moving the player automatically and
+/// receiving input to move left and right
+/// </summary>
+
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -26,8 +31,12 @@ public class PlayerBehaviour : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
+    /// <summary>
+    /// FixedUpdate is a prime place to put physics
+    /// calculations happening over a period of time
+    /// </summary>
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Check if we're moving to the side
         var horizontalSpeed = Input.GetAxis("Horizontal") * dodgeSpeed;
